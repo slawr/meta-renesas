@@ -1,10 +1,7 @@
-SRC_URI = "git://github.com/renesas-rcar/gst-plugins-bad.git;branch=RCAR-GEN3/1.6.3"
-SRC_URI += " \
-    file://configure-allow-to-disable-libssh2.patch \
-    file://0001-glimagesink-Downrank-to-marginal.patch \
-    file://0002-glplugin-glwindow-fix-memory-leak-of-navigation-thre.patch \
-"
-SRCREV = "9b7c647fb89c137439c2edae5e96c44c8fe6337f"
+SRC_URI_remove = "http://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-${PV}.tar.xz"
+SRC_URI_append = " git://github.com/renesas-rcar/gst-plugins-bad.git;branch=RCAR-GEN3/1.6.3"
+
+SRCREV = "e336b2dacf29a155dc8f6896ee0f3a89d87d805e"
 
 DEPENDS += "weston wayland-native"
 

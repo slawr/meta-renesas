@@ -16,11 +16,11 @@ DEPENDS = "linux-renesas"
 REQUIRED_DISTRO_FEATURES = "avb"
 
 SRC_URI = "git://github.com/renesas-rcar/avb-mch.git;branch=rcar-gen3"
-SRCREV = "72d7d19baa093e1a4f66780d6395977b6c981725"
+SRCREV = "440092412e5e100700c4a9ec36655ed38174b5dd"
 
 S = "${WORKDIR}/git"
 
-includedir = "/usr/local/include"
+includedir = "${RENESAS_DATADIR}/include"
 
 do_install_append() {
     # Create destination directories

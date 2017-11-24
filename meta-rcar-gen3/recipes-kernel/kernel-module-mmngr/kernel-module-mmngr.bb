@@ -14,7 +14,7 @@ MMNGR_CFG_salvator-x = "MMNGR_SALVATORX"
 MMNGR_CFG_h3ulcb = "MMNGR_SALVATORX"
 MMNGR_CFG_m3ulcb = "MMNGR_SALVATORX"
 
-includedir="/usr/local/include"
+includedir="${RENESAS_DATADIR}/include"
 SSTATE_DUPWHITELIST += "${STAGING_INCDIR}"
 
 do_compile() {
@@ -26,7 +26,7 @@ do_compile() {
         export MMNGR_SSP_CONFIG="MMNGR_SSP_DISABLE"
     fi
 
-    export MMNGR_IPMMU_PMB_CONFIG="MMNGR_IPMMU_PMB_DISABLE"
+    export MMNGR_IPMMU_MMU_CONFIG="IPMMU_MMU_DISABLE"
 
     cd ${S}/${MMNGR_DRV_DIR}/drv
     install -d ${INCSHARED}

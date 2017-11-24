@@ -16,11 +16,11 @@ DEPENDS = "linux-renesas kernel-module-avb-streaming kernel-module-avb-mch"
 REQUIRED_DISTRO_FEATURES = "avb"
 
 SRC_URI = "git://github.com/renesas-rcar/avb-mse.git;branch=rcar-gen3"
-SRCREV = "45779953bd9069ffc8add30d247f87326a8f89e9"
+SRCREV = "283ef1ed8f17167be4ec6906c0a45b206caf9f7a"
 
 S = "${WORKDIR}/git"
 
-includedir = "/usr/local/include"
+includedir = "${RENESAS_DATADIR}/include"
 
 do_install_append() {
     # Create destination directories

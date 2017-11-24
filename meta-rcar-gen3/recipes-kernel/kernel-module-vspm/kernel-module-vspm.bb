@@ -16,13 +16,13 @@ PR = "r0"
 
 VSPM_DRV_URL = "git://github.com/renesas-rcar/vspm_drv.git"
 BRANCH = "rcar_gen3"
-SRCREV = "764e68ac01dafb190ef6fcdb939bba892aecf906"
+SRCREV = "2bdd8fa3b21a44f0677657d2bf0d7c7f3656abad"
 
 SRC_URI = "${VSPM_DRV_URL};branch=${BRANCH}"
 
 S = "${WORKDIR}/git"
 VSPM_DRV_DIR = "vspm-module/files/vspm"
-includedir = "/usr/local/include"
+includedir = "${RENESAS_DATADIR}/include"
 
 do_compile() {
     cd ${S}/${VSPM_DRV_DIR}/drv
