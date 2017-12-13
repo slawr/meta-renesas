@@ -127,8 +127,10 @@ _adsp_km_list="adsp_driver,RCG3AHPDL4001ZDO,RCG3AHPDL4001ZDO.tar.gz"
 #           <package_name(user)>,<copy_file_name(user)>,<package_name(kernel)>,<copy_file_name(kernel)>"
 _gfx_list="RTM0RC7795GLTG0001SL40C,r8a7795_linux_gsx_binaries_gles3.tar.bz2,RCH3G001L4001ZDO,GSX_KM_H3.tar.bz2 \
            RTM0RC7796GLTG0001SL40C,r8a7796_linux_gsx_binaries_gles3.tar.bz2,RCM3G001L4001ZDO,GSX_KM_M3.tar.bz2 \
+           RTM0RC7796GLPGB001SL41C,r8a77965_linux_gsx_binaries_gles.tar.bz2,RCN3G001L4101ZDO,GSX_KM_M3N.tar.bz2 \
            INFRTM0RC7795GLTG0001SL40C,INF_r8a7795_linux_gsx_binaries_gles3.tar.bz2,RCH3G001L4001ZDO,GSX_KM_H3.tar.bz2 \
-           INFRTM0RC7796GLTG0001SL40C,INF_r8a7796_linux_gsx_binaries_gles3.tar.bz2,RCM3G001L4001ZDO,GSX_KM_M3.tar.bz2"
+           INFRTM0RC7796GLTG0001SL40C,INF_r8a7796_linux_gsx_binaries_gles3.tar.bz2,RCM3G001L4001ZDO,GSX_KM_M3.tar.bz2 \
+           INFRTM0RC7796GLPGB001SL41C,INF_r8a77965_linux_gsx_binaries_gles.tar.bz2,RCN3G001L4101ZDO,GSX_KM_M3N.tar.bz2"
 
 # ICCOM
 # Please add ICCOM to "_iccom_list"
@@ -1128,24 +1130,9 @@ func_dtv_dvd()
     echo ""
     echo "Copying for DTV/DVD Packages"
 
-    # DTV/DVD requires OMX Video Decoder
-    if [ ${_video_decoder_common_install} -eq 0 ]; then
-        echo "Video Decoder Library not found!"
-        echo "Skip DTV/DVD Package"
-        echo ""
-        return
-    fi
-
-    # DTV requires Audio Decoder
-    if [ ${_audio_common_install} -eq 0 ]; then
-        echo "Audio Common Library not found!"
-        echo "Skip DTV Package"
-        echo ""
-    else
-        # DTV package
-        func_dtv_kern
-        func_dtv_lib
-    fi
+    # DTV package
+    func_dtv_kern
+    func_dtv_lib
 
     # DVD package
     func_dvd_lib
